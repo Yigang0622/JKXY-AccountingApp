@@ -10,8 +10,11 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.jikexueyuan.accountingt.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <com.robinhood.ticker.TickerView
+        android:layout_width="fill_parent"
+        android:layout_height="70sp"
+        android:id="@+id/amount_text"
+        android:textSize = "60sp"
         android:text="Hello World!" />
+
 </RelativeLayout>
