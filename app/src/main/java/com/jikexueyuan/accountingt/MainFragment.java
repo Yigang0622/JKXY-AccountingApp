@@ -20,7 +20,7 @@ public class MainFragment extends Fragment {
 
     private ListView listView;
     private TextView textView;
-  //  private MainListAdapter adapter;
+    private ListViewAdapter adapter;
     private String date = "";
     private LinkedList<RecordBean> beanList;
 
@@ -41,6 +41,11 @@ public class MainFragment extends Fragment {
         beanList = new LinkedList<>();
         Log.d("Frag",date);
 
+        beanList.add(new RecordBean());
+        beanList.add(new RecordBean());
+        beanList.add(new RecordBean());
+        beanList.add(new RecordBean());
+
     }
 
 
@@ -50,10 +55,14 @@ public class MainFragment extends Fragment {
         textView = (TextView) rootView.findViewById(R.id.day_textView);
 
         textView.setText(date);
-     //   adapter = new MainListAdapter(getContext());
-      //  adapter.setData(beanList);
-       // listView.setAdapter(adapter);
+        adapter = new ListViewAdapter(getContext());
+        adapter.setData(beanList);
+        listView.setAdapter(adapter);
 
+
+        if (adapter.getCount() > 0){
+            rootView.findViewById(R.id.layout_no_record_today).setVisibility(View.INVISIBLE);
+        }
 
        // textView.setText(getDate());
 
