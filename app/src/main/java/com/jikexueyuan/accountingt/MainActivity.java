@@ -1,5 +1,6 @@
 package com.jikexueyuan.accountingt;
 
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,10 +13,15 @@ public class MainActivity extends AppCompatActivity {
 
     private TickerView tickerView;
 
+    private ViewPager viewPager;
+    private MainViewPagerAdapter pagerAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        GlobalUtil.getInstance().setContext(getApplicationContext());
 
         getSupportActionBar().setElevation(0);
 
@@ -26,17 +32,13 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("TTT","1111");
             }
         });
-//
-//        tickerView = (TickerView) findViewById(R.id.amount_text);
-//        tickerView.setCharacterList(TickerUtils.getDefaultNumberList());
-//        tickerView.setText("1000");
-//
-//        tickerView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                tickerView.setText("2234");
-//            }
-//        });
+
+        viewPager = (ViewPager) findViewById(R.id.main_viewPager);
+        pagerAdapter = new MainViewPagerAdapter(getSupportFragmentManager());
+        pagerAdapter.notifyDataSetChanged();
+        viewPager.setAdapter(pagerAdapter);
+        viewPager.setCurrentItem(pagerAdapter.getLastIndex());
+
 
     }
 }

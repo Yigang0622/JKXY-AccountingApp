@@ -71,7 +71,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_main" />
+    <include layout="@layout/content_main"/>
 
     <android.support.design.widget.FloatingActionButton
         android:src="@drawable/ic_add_white_24dp"
@@ -82,5 +82,7 @@
         app:layout_anchorGravity="bottom|end"
         android:layout_margin="16dp"
         />
+
+    <include layout="@layout/content_main" />
 
 </android.support.design.widget.CoordinatorLayout>
